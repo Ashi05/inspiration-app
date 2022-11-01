@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Todos() {
-  const [entry, setEntry] = useState();
+  const [entry, setEntry] = useState("");
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function Todos() {
           />
         </form>
       </div>
-      <div className="todo-entrylist"></div>
+      <div className="todo-entrylist">{entry}</div>
     </div>
   );
 }

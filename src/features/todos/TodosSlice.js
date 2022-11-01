@@ -24,6 +24,11 @@ const todosSlice = createSlice({
     doneEntries: [],
   },
   reducers: {
-    addEntry: (state, action) => {},
+    addEntry: (state, action) => {
+      state.entries.push({ text: action.payload, isDone: false });
+    },
   },
 });
+
+export const { addEntry } = todosSlice.actions;
+export default todosSlice.reducer;
