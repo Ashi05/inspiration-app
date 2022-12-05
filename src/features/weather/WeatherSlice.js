@@ -1,4 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import openWeatherMapApi from "../../api/weather";
+
+export const getWeather = createAsyncThunk(
+  "weather/getWeather",
+  ({ city, state }) => openWeatherMapApi.getWeather(city, state)
+);
 
 export const weatherSlice = createSlice({
   name: "weather",
@@ -6,7 +12,7 @@ export const weatherSlice = createSlice({
     city: "Seattle",
     state: "Washington",
     metadata: {},
-    temprature: "",
+    temperature: "",
   },
   reducers: {
     setCity: (state, action) => {
@@ -14,6 +20,12 @@ export const weatherSlice = createSlice({
     },
     setState: (state, action) => {
       state.state = action.payload;
+    },
+  },
+  extraReducers: {
+    [getWeather.fulfilled]: (state, action) => {
+      state.metadata = action.payload.weatherMetadata;
+      state.temperature = action.payload.temperature;
     },
   },
 });
