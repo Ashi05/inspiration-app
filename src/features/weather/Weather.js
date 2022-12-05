@@ -7,8 +7,6 @@ export default function Weather() {
     (state) => state.weather
   );
 
-  console.log(temperature);
-
   const dispatch = useDispatch();
   // dispatch(getWeather({ city, state }));
 
@@ -18,16 +16,14 @@ export default function Weather() {
 
   return (
     <div className="weather">
-      <div className="weather">
-        <div className="temperature-container">
-          <img
-            src={`http://openweathermap.org/img/wn/${metadata.icon}@2x.png`}
-            alt=""
-          />
-          <div className="weather-text">
-            <p className="temperature">{temperature}°</p>
-            <p className="weather-description">{metadata.description}</p>
-          </div>
+      <div className="temperature-container">
+        <img
+          src={`http://openweathermap.org/img/wn/${metadata.icon}@2x.png`}
+          alt=""
+        />
+        <div className="weather-text">
+          <p className="temperature">{temperature}°</p>
+          <p className="weather-description">{metadata.description}</p>
         </div>
       </div>
     </div>

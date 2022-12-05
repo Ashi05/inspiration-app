@@ -37,3 +37,31 @@
     transform: translateY(0px);
   }
 }
+
+.todo-entrylist {
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  list-style: none;
+  margin-top: 35px;
+}
+.todo-entrylist li {
+  background: #ddd;
+  padding: 25px;
+  margin-right: 15px;
+  position: relative;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.todo-entrylist li .done,
+.todo-entrylist li .remove {
+  position: absolute;
+  top: -10%;
+}
+.todo-entrylist li .done {
+  left: 20%;
+}
+.todo-entrylist li .remove {
+  right: 20%;
+}
